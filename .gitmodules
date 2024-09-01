@@ -1,0 +1,3 @@
+[submodule "libs/NLP-on-multilingual-coin-datasets"]
+	path = libs/NLP-on-multilingual-coin-datasets
+	url = https://github.com/Frankfurt-BigDataLab/NLP-on-multilingual-coin-datasets
