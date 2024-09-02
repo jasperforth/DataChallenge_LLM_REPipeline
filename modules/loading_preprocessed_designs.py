@@ -1,5 +1,6 @@
 import sys
 import pandas as pd
+import swifter
 import ast
 import logging
 import tqdm
@@ -20,7 +21,6 @@ sys.path.append(str(repo_dir / 'libs' / 'NLP_on_multilingual_coin_datasets'))
 # Import necessary modules from `cnt`
 from NLP_on_multilingual_coin_datasets.cnt.io import Database_Connection
 from NLP_on_multilingual_coin_datasets.cnt.annotate import annotate_designs
-# from NLP_on_multilingual_coin_datasets.cnt.model import load_ner_model_v2
 from NLP_on_multilingual_coin_datasets.cnt.preprocess import Preprocess
 
 # Configure logging
@@ -124,15 +124,23 @@ class LoadingPreprocessedDesigns():
         entities = {}
         try:
             for entity_type in ["PERSON", "OBJECT", "ANIMAL", "PLANT"]:
-                entities[entity_type] = self.dc.load_entities_from_db_v2(
-                    f"nlp_list_ent", entity_type, add_columns, [add_columns[1]], ",", True)
+                result = self.dc.load_entities_from_db_v2(
+                    f"{database}.nlp_list_entities", entity_type, add_columns, [add_columns[1]], ",", True)
+                
+                if result is None:
+                    logging.error(f"Failed to load {entity_type} entities: Received None")
+                    raise ValueError(f"Loading entities for {entity_type} returned None")
+                
+                entities[entity_type] = result
                 logging.info(f"Loaded {entity_type} entities successfully.")
+                
             return entities
+        
         except Exception as e:
             logging.error(f"Error loading entities: {e}")
             raise
 
-        
+
 
     def initialize_preprocess(self, df_entities: pd.DataFrame):
         preprocess = Preprocess()
