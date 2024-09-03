@@ -91,10 +91,10 @@ The following examples and instructions are now available and ready to use:
 1. **Evaluating and Exploring Generated Results (No SQL Database Required):**
    - A Jupyter notebook is available for evaluating and comparing generated Relation Extraction (RE) triples with existing ground truth data. This notebook serves as a tool to assess the quality of the generated data and includes necessary comparisons with the ground truth.
 
-2. **Chat API Calls (SQL Database Required):**
+2. **Chat API Calls for OpenAI (GPT-4o) (SQL Database Required):**
    - Example usage of the chat LLM API, demonstrating interaction with the model using data stored in the SQL database.
 
-3. **Batch API Calls for OpenAI (GPT-4.0) (SQL Database Required):**
+3. **Batch API Calls for OpenAI (GPT-4o) (SQL Database Required):**
    - Instructions for using the batch API bot specifically with OpenAI's GPT-4.0, including data retrieval from the SQL database.
 
 #### Database Setup for SQL-Dependent Examples
