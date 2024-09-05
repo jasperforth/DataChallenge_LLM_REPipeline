@@ -135,4 +135,4 @@ To view a copy of this license, visit [Creative Commons License](https://creativ
 Dieses Projekt ist lizenziert unter der Creative Commons Attribution - NonCommercial - ShareAlike 3.0 Germany License.  
 Um eine Kopie dieser Lizenz zu sehen, besuchen Sie [Creative Commons Lizenz](https://creativecommons.org/licenses/by-nc-sa/3.0/de/).
 
-The full license text is included in the `LICENSE` file in the repository.
+The full license text is included in the `LICENSE` file in the repository. 
